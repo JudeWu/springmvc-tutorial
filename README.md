@@ -5,6 +5,7 @@
   
 - [史上最简单的 Spring MVC 教程（一）](https://github.com/guobinhit/springmvc-tutorial/blob/master/buildspringmvc.md)
 - [史上最简单的 Spring MVC 教程（二）](https://github.com/guobinhit/springmvc-tutorial/blob/master/handlermapping.md)
+- [史上最简单的 Spring MVC 教程（三）](https://github.com/guobinhit/springmvc-tutorial/blob/master/controller.md)
   
   ----------
 此外，附上一句格言，望共勉：**好学若饥，谦卑若愚。**
