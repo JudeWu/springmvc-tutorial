@@ -18,6 +18,26 @@ Spring MVC 属于 SpringFrameWork 的后续产品，已经融合在 Spring Web F
 
 ![1](http://img.blog.csdn.net/20170426175025237)
 
+在这里，咱们需要向`External Libraries`中导入相应的 jar 包，具体添加 jar 包的方法可以参考「[详述 IntelliJ IDEA 之 添加 jar 包](http://blog.csdn.net/qq_35246620/article/details/54705071)」。至于需要导入的 jar 包，在咱们事先下载的「[Spring MVC 框架依赖包](http://download.csdn.net/detail/qq_35246620/9743975)」中都可以找到，下面附上需要导入的 jar 名称：
+
+```
+spring-aop-3.2.2.jar			          		AOP
+spring-aspects-3.2.2.jar					AOP
+spring-beans-3.2.2.jar						核心包
+spring-context-3.2.2.jar					扩展包
+spring-context-support-3.2.2.jar		          	对扩展包支持
+spring-core-3.2.2.jar						核心包
+spring-expression-3.2.2.jar	spring		          	表达式
+spring-web-3.2.2.jar						web b/s
+spring-webmvc-3.2.2.jar						springmvc
+
+com.springsource.org.aopalliance-1.0.0.jar			AOP
+com.springsource.org.apache.commons.logging-1.1.1.jar	        通用日志
+```
+
+
+
+
 
 
 
