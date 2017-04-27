@@ -112,6 +112,25 @@ public class TestController extends AbstractController {
 </beans>
 ```
 
+当咱们完成以上步骤之后，咱们就已经初步搭建了 Spring MVC 框架。接下来，再配置一下 web 服务器就可以进行测试啦！在这里，博主用的 web 服务器是 Tomcat，配置完的结果如下图所示：
+
+![Tomcat](http://img.blog.csdn.net/20170427093943562)
+
+ - 标注1：自定义 Tomcat 名称，可以随意取名；
+ - 标注2：使用的 Tomcat 版本，点击`Configure`进行设置；
+ - 标注3：为 web 服务器选择默认的浏览器；
+ - 标注4：服务器访问路径；
+ - 标注5：设置虚拟机参数；
+ - 标注6：项目运行环境，即 JRE；
+ - 标注7：端口号；
+ - 标注8：部署 Tomcat 服务器。
+
+在此处，点击 **标注8** 所示的`Deployment`，进入后进行如下配置：
+
+![dey](http://img.blog.csdn.net/20170427100653590)
+
+
+
 
 
 
