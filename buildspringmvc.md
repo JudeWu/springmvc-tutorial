@@ -14,7 +14,7 @@ Spring MVC 属于 SpringFrameWork 的后续产品，已经融合在 Spring Web F
 ## 3 搭建 Spring MVC 框架
 
 
-首先，我们需要下载 Spring MVC 框架的各种依赖包，下载地址为「[Spring MVC 框架依赖包](http://download.csdn.net/detail/qq_35246620/9743975)」；然后，创建 Java Web 项目，项目名随意取，在这里，咱们就不妨取为`springmvc-demo`，构建项目结构图如下：
+首先，咱们需要下载 Spring MVC 框架的各种依赖包，下载地址为「[Spring MVC 框架依赖包](http://download.csdn.net/detail/qq_35246620/9743975)」；然后，创建 Java Web 项目，项目名随意取，在这里，咱们就不妨取为`springmvc-demo`，构建项目结构图如下：
 
 ![1](http://img.blog.csdn.net/20170426175025237)
 
