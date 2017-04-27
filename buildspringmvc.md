@@ -112,7 +112,7 @@ public class TestController extends AbstractController {
 </beans>
 ```
 
-当咱们完成以上步骤之后，咱们就已经初步搭建了 Spring MVC 框架。接下来，再配置一下 web 服务器就可以进行测试啦！在这里，博主用的 web 服务器是 Tomcat，配置完的结果如下图所示：
+当咱们完成以上步骤之后，咱们就已经初步搭建了 Spring MVC 框架。接下来，再配置一下 web 服务器就可以进行测试啦！在这里，咱们使用的 web 服务器是 Tomcat，配置完的结果如下图所示：
 
 ![Tomcat](http://img.blog.csdn.net/20170427093943562)
 
@@ -125,12 +125,18 @@ public class TestController extends AbstractController {
  - 标注7：端口号；
  - 标注8：部署 Tomcat 服务器。
 
-在此处，点击 **标注8** 所示的`Deployment`，进入后进行如下配置：
+如上图所示，点击 **标注8** 所示的`Deployment`，进入后进行如下配置：
 
 ![dey](http://img.blog.csdn.net/20170427100653590)
 
+至此，Spring MVC 框架搭建成功，运行程序后，将在 Chrome 浏览器显示如下内容：
+
+![jsp](http://img.blog.csdn.net/20170427101024504)
 
 
+----------
+
+**温馨提示**：在此项目中，由于使用 IDE 工具为 IntelliJ IDEA ，因此不用咱们自己建立`lib`包，直接将`jar`包导入`External Libraries`中即可。 
 
 
 
