@@ -18,7 +18,7 @@ Spring MVC 属于 SpringFrameWork 的后续产品，已经融合在 Spring Web F
 
 ![1](http://img.blog.csdn.net/20170426175025237)
 
-在这里，咱们需要向`External Libraries`中导入相应的 jar 包，具体添加 jar 包的方法可以参考「[详述 IntelliJ IDEA 之 添加 jar 包](http://blog.csdn.net/qq_35246620/article/details/54705071)」。至于需要导入的 jar 包，在咱们事先下载的「[Spring MVC 框架依赖包](http://download.csdn.net/detail/qq_35246620/9743975)」中都可以找到，下面附上需要导入的 jar 名称：
+在这里，咱们需要向`External Libraries`中导入相应的 jar 包，具体添加 jar 包的方法可以参考「[详述 IntelliJ IDEA 之 添加 jar 包](http://blog.csdn.net/qq_35246620/article/details/54705071)」。至于需要导入的 jar 包，在咱们事先下载的「[Spring MVC 框架依赖包](http://download.csdn.net/detail/qq_35246620/9743975)」中都可以找到，下面附上需要导入的 jar 包名称：
 
 ```
 spring-aop-3.2.2.jar			          		AOP
@@ -35,7 +35,7 @@ com.springsource.org.aopalliance-1.0.0.jar			AOP
 com.springsource.org.apache.commons.logging-1.1.1.jar	        通用日志
 ```
 
-接下来，依次建立控制器 Controller（即Java类）：
+接下来，依次**建立控制器`TestController`**（即Java类）：
 
 ```
 package com.hit.controller;
@@ -59,7 +59,7 @@ public class TestController extends AbstractController {
 }
 
 ```
-配置 web.xml 文件，主要是配置 DispatcherServlet，即核心分发器：
+**配置`web.xml`文件**，主要是配置 DispatcherServlet，即核心分发器：
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
@@ -79,6 +79,38 @@ public class TestController extends AbstractController {
 </web-app>
 ```
 
+**编辑`index.jsp`页面**，用于显示结果，在这里最好将此 JSP 页面复制到 pages 目录一份，至于原因嘛，则是尽量将页面都统一放在一个目录之中：
+
+```
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+	<head>
+	    <title>Spring MVC</title>
+	</head>
+<body>
+	This is my Spring MVC!
+</body>
+</html>
+```
+**建立`action-servlet.xml`配置文件**，主要是声明 Controller 和配置 ViewResolver，即控制器和视图解析器：
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <!-- 声明 Controller -->
+    <bean name="/home.action" class="com.hit.controller.TestController" />
+
+    <!-- 内部资源视图解析器，前缀 + 逻辑名 + 后缀 -->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+</beans>
+```
 
 
 
