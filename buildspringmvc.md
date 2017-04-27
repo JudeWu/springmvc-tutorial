@@ -27,7 +27,7 @@ spring-beans-3.2.2.jar						核心包
 spring-context-3.2.2.jar					扩展包
 spring-context-support-3.2.2.jar		          	对扩展包支持
 spring-core-3.2.2.jar						核心包
-spring-expression-3.2.2.jar	spring		          	表达式
+spring-expression-3.2.2.jar	                                spring 表达式
 spring-web-3.2.2.jar						web b/s
 spring-webmvc-3.2.2.jar						springmvc
 
@@ -35,7 +35,49 @@ com.springsource.org.aopalliance-1.0.0.jar			AOP
 com.springsource.org.apache.commons.logging-1.1.1.jar	        通用日志
 ```
 
+接下来，依次建立控制器 Controller（即Java类）：
 
+```
+package com.hit.controller;
+
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.AbstractController;
+
+/**
+ * Created by 维C果糖 on 2017/4/22.
+ */
+
+public class TestController extends AbstractController {
+    @Override
+    protected ModelAndView handleRequestInternal(javax.servlet.http.HttpServletRequest request,
+                                                 javax.servlet.http.HttpServletResponse response) throws Exception {
+
+        System.out.println(request.getRequestURI());  // 获取Controller的名称，即地址
+
+        return new ModelAndView("index");  // 逻辑名
+    }
+}
+
+```
+配置 web.xml 文件，主要是配置 DispatcherServlet，即核心分发器：
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    <!-- 配置 DispatcherServlet，对所有后缀为action的url进行过滤 -->
+    <servlet>
+        <servlet-name>action</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>action</servlet-name>
+        <url-pattern>*.action</url-pattern>
+    </servlet-mapping>
+</web-app>
+```
 
 
 
