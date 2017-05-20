@@ -3,7 +3,7 @@
 1 前言
 ====
 
-在「[史上最简单的 Spring MVC 教程（一）](https://github.com/guobinhit/springmvc-tutorial/blob/master/buildspringmvc.md)」中，咱们已经成功搭建起 Spring MVC 框架，并且运行成功。在本篇文章中，咱们首先尝试着对前面的程序进行修改，即修改`action-servlet.xml`配置文件的位置和名称，修改后的项目结构图如下：
+在「[史上最简单的 Spring MVC 教程（一）](https://github.com/guobinhit/springmvc-tutorial/blob/master/articles-of-springmvc/buildspringmvc.md)」中，咱们已经成功搭建起 Spring MVC 框架，并且运行成功。在本篇文章中，咱们首先尝试着对前面的程序进行修改，即修改`action-servlet.xml`配置文件的位置和名称，修改后的项目结构图如下：
 
 ![01](http://img.blog.csdn.net/20170520083942690)
 
