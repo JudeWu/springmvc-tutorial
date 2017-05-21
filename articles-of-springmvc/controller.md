@@ -262,7 +262,7 @@ public class PersonFormController extends SimpleFormController {
 ---------------------
 在使用向导控制器 WizarController 的时候，咱们也需要在类的构造方法中设置关联的实体，并且可以在构造方法中实现页面参数的回显功能。 接下来，在类中覆写 processFinish 方法，实现点击“完成”操作后需要跳转的页面；覆写 processCancel 方法，实现点击“取消”操作后跳转的页面。由于在使用向导控制器时，涉及多个页面，因此咱们需要新建多个 JSP 页面，并在`springmvc-servlet.xml`中声明一个向导控制器，并配置页面的流转顺序。修改后的项目结构图如下所示：
 
-![3](http://img.blog.csdn.net/20170521133118911)
+![str](http://img.blog.csdn.net/20170521133404013)
 
 **第 1 步**：创建向导控制器（DemoWizardController）
 
