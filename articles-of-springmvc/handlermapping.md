@@ -96,9 +96,9 @@
     <bean id="simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
-                <prop key="/a.aciton">homeController</prop>
-                <prop key="/b.aciton">homeController</prop>
-                <prop key="/c.aciton">homeController</prop>
+                <prop key="/a.action">homeController</prop>
+                <prop key="/b.action">homeController</prop>
+                <prop key="/c.action">homeController</prop>
             </props>
         </property>
     </bean>
@@ -151,9 +151,9 @@
     <bean id="simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
-                <prop key="/a.aciton">homeController</prop>
-                <prop key="/b.aciton">homeController</prop>
-                <prop key="/home.aciton">homeController</prop>
+                <prop key="/a.action">homeController</prop>
+                <prop key="/b.action">homeController</prop>
+                <prop key="/home.action">homeController</prop>
             </props>
         </property>
         <property name="order" value="0"/>
@@ -189,9 +189,9 @@
     <bean id="simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
-                <prop key="/a.aciton">homeController</prop>
-                <prop key="/b.aciton">homeController</prop>
-                <prop key="/hello.aciton">homeController</prop>
+                <prop key="/a.action">homeController</prop>
+                <prop key="/b.action">homeController</prop>
+                <prop key="/hello.action">homeController</prop>
             </props>
         </property>
         <property name="order" value="0"/>
