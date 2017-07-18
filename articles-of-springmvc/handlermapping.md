@@ -1,4 +1,4 @@
-# 史上最简单的 Spring MVC 教程（二）
+# 史上最简单的 Spring MVC 教程（二）「HandlerMapping」
 
 1 前言
 ====
