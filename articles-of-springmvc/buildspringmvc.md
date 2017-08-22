@@ -2,23 +2,23 @@
 
 ## 1 简介
 
-Spring MVC 属于 SpringFrameWork 的后续产品，已经融合在 Spring Web Flow 里面。Spring 框架提供了构建 Web 应用程序的全功能 MVC 模块，而 Spring MVC 就是其中最优秀的 MVC 框架。自从 Spring 2.5 版本发布后，由于支持注解配置，易用性得到了大幅度的提高；Spring 3.0 更加完善，实现了对 Struts 2 的超越。从现阶段来看，Spring MVC 是当前应用最多的 MVC 框架，而且在很多公司，通常会把 Spring MVC 和 Mybatis 整合起来使用。
+　　Spring MVC 属于 SpringFrameWork 的后续产品，已经融合在 Spring Web Flow 里面。Spring 框架提供了构建 Web 应用程序的全功能 MVC 模块，而 Spring MVC 就是其中最优秀的 MVC 框架。自从 Spring 2.5 版本发布后，由于支持注解配置，易用性得到了大幅度的提高；Spring 3.0 更加完善，实现了对 Struts 2 的超越。从现阶段来看，Spring MVC 是当前应用最多的 MVC 框架，而且在很多公司，通常会把 Spring MVC 和 Mybatis 整合起来使用。
 
 ## 2 框架原理
 
-在 Spring MVC 框架中，从 Request（请求）开始，依次进入 DispatcherServlet（核心分发器） —> HandlerMapping（处理器映射） —> Controller（控制器） —> ModelAndView（模型和视图） —> ViewResolver（视图解析器） —> View（视图） —> Response（响应）结束，其中 DispatcherServlet、HandlerMapping 和 ViewResolver 只需要在 XML 文件中配置即可，从而大大提高了开发的效率，特别是对于 HandlerMapping，框架为其提供了默认的配置。具体可以参考如下 Spring MVC 框架的请求处理示意图：
+　　在 Spring MVC 框架中，一个请求从开始到响应，需要经历的步骤为：从 Request（请求）开始，依次进入 DispatcherServlet（核心分发器） 、HandlerMapping（处理器映射）、Controller（控制器）、ModelAndView（模型和视图）、ViewResolver（视图解析器）、View（视图）和 Response（响应），其中DispatcherServlet、HandlerMapping 和 ViewResolver 只需要在 XML 文件中配置即可，从而大大提高了开发的效率，特别是对于 HandlerMapping 框架为其提供了默认的配置。Spring MVC 框架的结构图如下所示：
 
-![Spring MVC 框架图](http://img.blog.csdn.net/20170207154527170)
+![SpringMVC](http://img.blog.csdn.net/20170207154527170)
 
 
 ## 3 搭建 Spring MVC 框架
 
 
-首先，咱们需要下载 Spring MVC 框架的各种依赖包，下载地址为「[Spring MVC 框架依赖包](http://download.csdn.net/detail/qq_35246620/9743975)」；然后，创建 Java Web 项目，项目名随意取，在这里，咱们就不妨取为`springmvc-demo`，构建项目结构图如下：
+　　首先，我们需要下载 Spring MVC 框架的各种依赖包，下载地址为「[Spring MVC 框架的各种依赖包](http://download.csdn.net/detail/qq_35246620/9743975)」；然后，创建 Java Web 项目，项目名可以随意取，在这里，我们不妨就取名为`springmvc`，构建项目结构图如下：
 
-![1](http://img.blog.csdn.net/20170426175025237)
+![projectStructure](http://img.blog.csdn.net/20170821162147434)
 
-在这里，咱们需要向`External Libraries`中导入相应的 jar 包，具体添加 jar 包的方法可以参考「[详述 IntelliJ IDEA 之 添加 jar 包](http://blog.csdn.net/qq_35246620/article/details/54705071)」。至于需要导入的 jar 包，在咱们事先下载的「[Spring MVC 框架依赖包](http://download.csdn.net/detail/qq_35246620/9743975)」中都可以找到，下面附上需要导入的 jar 包名称：
+接下来，在`External Libraries`中导入 Spring MVC 框架的相关依赖包，具体 jar 包的导入方法可以参考「[详述 IntelliJ IDEA 之 添加 jar 包](http://blog.csdn.net/qq_35246620/article/details/54705071)」。至于需要导入的 jar 包，在我们之前下载的「[Spring MVC 框架的各种依赖包](http://download.csdn.net/detail/qq_35246620/9743975)」中都可以找到，下面附上需要导入的 jar 名称：
 
 ```
 spring-aop-3.2.2.jar			          		AOP
@@ -35,7 +35,7 @@ com.springsource.org.aopalliance-1.0.0.jar			AOP
 com.springsource.org.apache.commons.logging-1.1.1.jar	        通用日志
 ```
 
-接下来，依次**建立控制器`TestController`**（即Java类）：
+**第 1 步：建立控制器 Controller（即 Java 类）**
 
 ```
 package com.hit.controller;
@@ -43,35 +43,43 @@ package com.hit.controller;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
- * Created by 维C果糖 on 2017/4/22.
+ * @Author Charies Gavin
+ * @Date 2017/8/21,下午3:40
+ * @Description 测试控制器
  */
+public class TestController  extends AbstractController{
 
-public class TestController extends AbstractController {
     @Override
-    protected ModelAndView handleRequestInternal(javax.servlet.http.HttpServletRequest request,
-                                                 javax.servlet.http.HttpServletResponse response) throws Exception {
+    protected ModelAndView handleRequestInternal(HttpServletRequest request,
+                                                 HttpServletResponse response) throws Exception {
+        // 获取 Controller 的名称，即地址
+        System.out.println(request.getRequestURI());
 
-        System.out.println(request.getRequestURI());  // 获取Controller的名称，即地址
-
-        return new ModelAndView("index");  // 逻辑名
+        // 逻辑名
+        return new ModelAndView("index");
     }
 }
 
 ```
-**配置`web.xml`文件**，主要是配置 DispatcherServlet，即核心分发器：
+**第 2 步：配置`web.xml`文件，主要是配置 DispatcherServlet，即核心分发器**
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+         http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
-    <!-- 配置 DispatcherServlet，对所有后缀为action的url进行过滤 -->
+    <!-- 配置 DispatcherServlet，对所有后缀为 action 的 url 进行过滤 -->
     <servlet>
         <servlet-name>action</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>action</servlet-name>
         <url-pattern>*.action</url-pattern>
@@ -79,20 +87,28 @@ public class TestController extends AbstractController {
 </web-app>
 ```
 
-**编辑`index.jsp`页面**，用于显示结果，在这里最好将此 JSP 页面复制到 pages 目录一份，至于原因嘛，则是尽量将页面都统一放在一个目录之中：
+**第 3 步：编辑 JSP 页面，用于显示，在这里可以将该 JSP 页面复制到 pages 目录一份备用**
 
 ```
+<%--
+  Created by IntelliJ IDEA.
+  User: Charies Gavin
+  Date: 2017/8/21
+  Time: 下午3:32
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-	<head>
-	    <title>Spring MVC</title>
-	</head>
-<body>
-	This is my Spring MVC!
-</body>
+  <head>
+   <title>Spring MVC</title>
+  </head>
+
+  <body>
+    This is my Spring MVC!
+  </body>
 </html>
 ```
-**建立`action-servlet.xml`配置文件**，主要是声明 Controller 和配置 ViewResolver，即控制器和视图解析器：
+**第 4 步：建立`action-servlet.xml`文件，主要是声明 Controller 和配置 ViewResolver，即控制器和视图解析器**
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -112,26 +128,27 @@ public class TestController extends AbstractController {
 </beans>
 ```
 
-当咱们完成以上步骤之后，咱们就已经初步搭建了 Spring MVC 框架。接下来，再配置一下 web 服务器就可以进行测试啦！在这里，咱们使用的 web 服务器是 Tomcat，配置完的结果如下图所示：
+在完成以上操作之后，我们就已经初步搭建了 Spring MVC 框架。下面，在配置一下 web 服务器就可以进行体验啦！在这里，我们用的 Web 服务器是 tomcat，配置完的结果如下图所示：
 
-![Tomcat](http://img.blog.csdn.net/20170427093943562)
+![tomact](http://img.blog.csdn.net/20170821164107553)
 
- - 标注1：自定义 Tomcat 名称，可以随意取名；
- - 标注2：使用的 Tomcat 版本，点击`Configure`进行设置；
- - 标注3：为 web 服务器选择默认的浏览器；
- - 标注4：服务器访问路径；
- - 标注5：设置虚拟机参数；
- - 标注6：项目运行环境，即 JRE；
- - 标注7：端口号；
- - 标注8：部署 Tomcat 服务器。
+ - 标注1：自定义 tomcat 服务器的名称；
+ - 标注2：配置 Web 服务器默认启动的浏览器；
+ - 标注3：配置虚拟机参数；
+ - 标注4：配置 Java 运行环境；
+ - 标注5：配置 HTTP 端口号；
+ - 标注6：部署 tomcat 服务器。
 
-如上图所示，点击 **标注8** 所示的`Deployment`，进入后进行如下配置：
+在此处，点击 **标注6** 所示的`Deployment`，部署 tomcat 服务器：
 
-![dey](http://img.blog.csdn.net/20170427100653590)
+![deployment](http://img.blog.csdn.net/20170821164134572)
+
+- 标注1：建议选择`exploded`版本进行部署；
+- 标注2：配置应用上下文。
 
 至此，Spring MVC 框架搭建成功，运行程序后，将在 Chrome 浏览器显示如下内容：
 
-![jsp](http://img.blog.csdn.net/20170427101024504)
+![index](http://img.blog.csdn.net/20170821164555137)
 
 
 ----------
