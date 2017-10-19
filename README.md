@@ -8,8 +8,6 @@
 - [史上最简单的 Spring MVC 教程（三）「Controller」](https://github.com/guobinhit/springmvc-tutorial/blob/master/articles-of-springmvc/controller.md)
 - [史上最简单的 Spring MVC 教程（四）「注解示例」](https://github.com/guobinhit/springmvc-tutorial/blob/master/articles-of-springmvc/annotation.md)
 - [史上最简单的 Spring MVC 教程（五）「XXX」](https://github.com/guobinhit/springmvc-tutorial/blob/master/articles-of-springmvc/annotation-showpersonlist.md)
-
-----------
  
 > CSDN VERSION
 
